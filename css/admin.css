@@ -1,0 +1,192 @@
+/* --- DASHBOARD STYLES --- */
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #ffc107;
+    --text-color: #333333;
+    --bg-color: #baddff;
+    --card-bg: #ffffff;
+    --gradiant-start: #0056b3;
+    --gradiant-end: #002a5c;
+}
+
+:root {
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* 1. Sidebar Styling */
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, var(--gradiant-start) 0%, var(--gradiant-end) 100%);
+    color: white;
+    padding-top: 20px;
+    z-index: 1000;
+    overflow-y: scroll;
+}
+
+.sidebar-brand {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    /* Gold color for logo text */
+}
+
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.sidebar i {
+    width: 25px;
+    /* Fixed width for icons alignment */
+}
+
+/* 2. Main Content Area */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+
+}
+
+/* --- CUSTOM SCROLLBAR FOR SIDEBAR --- */
+
+/* For Chrome, Edge, and Safari */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+    /* Width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+    /* Background of the scrollbar track */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Semi-transparent white scroll handle */
+    border-radius: 10px;
+    /* Rounded corners */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Brighter on hover */
+}
+
+/* For Firefox */
+.sidebar {
+    scrollbar-width: thin;
+    /* Makes scrollbar thin */
+    scrollbar-color: rgba(255, 252, 252, 0.3) transparent;
+    /* Handle color | Track color */
+}
+
+.toggle-button {
+    background-color: var(--gradiant-start);
+    color: white;
+}
+
+/* --- RESPONSIVE SIDEBAR (MOBILE) --- */
+@media (max-width: 768px) {
+
+    /* 1. Hide Sidebar by default on mobile */
+    .sidebar {
+        left: -250px;
+        /* Move off-screen to the left */
+        transition: left 0.3s;
+        /* Smooth sliding animation */
+    }
+
+    /* 2. Show Sidebar when active */
+    .sidebar.active {
+        left: 0;
+        /* Slide back in */
+    }
+
+    /* 3. Make Main Content full width on mobile */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* 4. Optional: Add a dark overlay when menu is open */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+}
+
+/* --- GOOGLE STYLE PROFILE DROPDOWN --- */
+
+/* 1. Remove the default caret arrow from the trigger */
+.dropdown-toggle.no-arrow::after {
+    display: none;
+}
+
+/* 2. The Box Container */
+.profile-box {
+    width: 320px;
+    /* Standard Google profile width */
+    background: linear-gradient(135deg, var(--gradiant-start) 0%, var(--gradiant-end) 100%);
+    border: none;
+    border-radius: 20px;
+    /* Softer, modern corners */
+    margin-top: 10px;
+    /* Little spacing from the top bar */
+}
+
+/* 3. Items (Settings, Logout) Styling */
+.profile-box .dropdown-item {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+/* Hover Effect for items */
+.profile-box .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Transparent white hover */
+    color: white;
+    transform: translateX(5px);
+    /* Subtle slide effect */
+}
+
+/* 4. The "Manage Profile" Button */
+.profile-box .btn-outline-light {
+    font-size: 0.8rem;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.profile-box .btn-outline-light:hover {
+    background-color: white;
+    color: var(--primary-color);
+    border-color: white;
+}
